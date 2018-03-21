@@ -66,7 +66,7 @@ class EtcHosts < Inspec.resource(1)
             "Can't find file. \"#{conf_path}\""
     end
 
-    if file.content.nil?
+    if file.content.lines.count <= 0
       raise Inspec::Exceptions::ResourceSkipped,
             "File has no content. \"#{conf_path}\""
     end
